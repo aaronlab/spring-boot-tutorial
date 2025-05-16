@@ -1,6 +1,6 @@
 package com.example.springboottutorial.domain.auth
 
-import com.example.springboottutorial.annotation.Public
+import com.example.springboottutorial.global.annotation.Public
 import com.example.springboottutorial.domain.auth.dto.request.SigninRequest
 import com.example.springboottutorial.domain.auth.dto.request.SignupRequest
 import com.example.springboottutorial.domain.auth.dto.response.SigninResponse
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 @Public
 @Tag(name = "auth")
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/v1/auth")
 class AuthController(
     private val authService: AuthService
 ) {

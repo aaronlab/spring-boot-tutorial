@@ -1,5 +1,6 @@
 package com.example.springboottutorial.domain.user
 
+import com.example.springboottutorial.global.entity.SoftDeleteEntity
 import jakarta.persistence.*
 import java.util.UUID
 
@@ -16,4 +17,4 @@ class UserEntity(
     @Column(nullable = false)
     val password: String,
 
-    )
+    ) : SoftDeleteEntity()

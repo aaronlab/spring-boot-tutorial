@@ -1,6 +1,6 @@
 package com.example.springboottutorial.domain.auth.filter
 
-import com.example.springboottutorial.annotation.Public
+import com.example.springboottutorial.global.annotation.Public
 import com.example.springboottutorial.domain.auth.util.JwtUtil
 import com.example.springboottutorial.global.exception.CustomException
 import com.example.springboottutorial.global.exception.ErrorCode
