@@ -1,0 +1,19 @@
+package com.example.springboottutorial.domain.user
+
+import jakarta.persistence.*
+import java.util.UUID
+
+@Entity
+@Table(name = "user")
+class UserEntity(
+    @Id
+    @Column(length = 36)
+    val id: String = UUID.randomUUID().toString(),
+
+    @Column(nullable = false, unique = true)
+    val email: String,
+
+    @Column(nullable = false)
+    val password: String,
+
+    )
