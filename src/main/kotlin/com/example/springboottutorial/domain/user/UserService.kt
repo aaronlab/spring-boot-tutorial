@@ -14,6 +14,9 @@ class UserService(
 ) {
     private val logger = logger()
 
+    /**
+     * 내 정보 조회
+     */
     fun getMe(email: String): MeResponse {
         logger.appDebug("UserService.getMe() called with email: $email")
 
@@ -23,7 +26,8 @@ class UserService(
         return MeResponse(
             email = user.email,
             name = user.name,
-            createdAt = user.createdAt
+            createdAt = user.createdAt,
+            updatedAt = user.updatedAt
         )
     }
 }

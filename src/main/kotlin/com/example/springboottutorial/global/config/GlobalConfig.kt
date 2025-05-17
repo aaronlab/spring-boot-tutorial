@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer
+import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import java.time.LocalDateTime
@@ -23,8 +24,13 @@ class GlobalConfig {
 
         // ObjectMapper 설정
         val objectMapper = ObjectMapper()
+
+        // JavaTimeModule 설정
         objectMapper.registerModule(javaTimeModule)
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+
+        // KotlinModule 설정
+        objectMapper.registerModules(KotlinModule.Builder().build())
 
         return objectMapper
     }

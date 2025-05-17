@@ -12,4 +12,8 @@ enum class ErrorCode(
 
     // USER
     USER_NOT_FOUND("USER-001", "사용자를 찾을 수 없습니다.", 404),
+
+    // COMMON
+    INVALID_REQUEST("COMMON-001", "잘못된 요청입니다.", 400),
+    INTERNAL_SERVER_ERROR("COMMON-002", "서버 오류가 발생했습니다.", 500),
 }

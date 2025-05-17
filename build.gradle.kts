@@ -44,7 +44,7 @@ dependencies {
     // Utility
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
-
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     // Development
     developmentOnly("org.springframework.boot:spring-boot-devtools")
