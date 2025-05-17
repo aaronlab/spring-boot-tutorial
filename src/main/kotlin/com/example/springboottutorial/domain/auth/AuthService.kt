@@ -21,7 +21,7 @@ class AuthService(
      * 회원가입
      */
     fun signup(request: SignupRequest): SigninResponse {
-        if (userRepository.findByEmail(request.email) !== null) {
+        if (userRepository.findByEmailAndDeletedAtIsNull(request.email) !== null) {
             throw CustomException.of(ErrorCode.EMAIL_ALREADY_EXISTS)
         }
 
@@ -37,7 +37,7 @@ class AuthService(
      * 로그인
      */
     fun signin(request: SigninRequest): SigninResponse {
-        val user = userRepository.findByEmail(request.email)
+        val user = userRepository.findByEmailAndDeletedAtIsNull(request.email)
             ?: throw CustomException.of(ErrorCode.INVALID_CREDENTIALS)
 
         if (!passwordEncoder.matches(request.password, user.password)) {

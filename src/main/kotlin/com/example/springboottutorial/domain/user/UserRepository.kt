@@ -6,5 +6,5 @@ interface UserRepository: JpaRepository<UserEntity, String> {
     /**
      * 이메일로 사용자 조회
      */
-    fun findByEmail(email: String): UserEntity?
+    fun findByEmailAndDeletedAtIsNull(email: String): UserEntity?
 }
