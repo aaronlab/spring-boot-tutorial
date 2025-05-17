@@ -26,7 +26,11 @@ class AuthService(
         }
 
         val hashedPassword = passwordEncoder.encode(request.password)
-        val user = UserEntity(email = request.email, password = hashedPassword)
+        val user = UserEntity(
+            email = request.email,
+            name = request.name,
+            password = hashedPassword
+        )
 
         userRepository.save(user)
 

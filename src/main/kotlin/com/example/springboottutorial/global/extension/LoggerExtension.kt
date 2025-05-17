@@ -17,6 +17,12 @@ fun Logger.appError(message: String, vararg args: Any?) {
     this.error(coloredMessage, *args)
 }
 
+fun Logger.appDebug(message: String, vararg args: Any?) {
+    val coloredMessage = "\u001B[34m[DEBUG]\u001B[0m $message"
+    this.debug(coloredMessage, *args)
+}
+
+
 fun Logger.verbose(message: String, vararg args: Any?) {
     val coloredMessage = "\u001B[35m[VERBOSE]\u001B[0m $message"
     this.info(coloredMessage, *args)
