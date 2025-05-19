@@ -12,12 +12,12 @@ class UserEntity(
     val id: String = UUID.randomUUID().toString(),
 
     @Column(nullable = false, unique = true)
-    val email: String,
+    var email: String,
 
     @Column(nullable = false)
-    val name: String,
+    var name: String,
 
     @Column(nullable = false)
-    val password: String,
+    var password: String,
 
     ) : SoftDeleteEntity()

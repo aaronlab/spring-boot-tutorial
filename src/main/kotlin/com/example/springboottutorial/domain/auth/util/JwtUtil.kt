@@ -21,12 +21,12 @@ class JwtUtil(private val jwtProperty: JwtProperty) {
     /**
      * JWT 토큰 생성
      */
-    fun generateToken(email: String): String {
+    fun generateToken(id: String): String {
         val now = Date()
         val expiration = Date(now.time + jwtProperty.expiration * 1000)
 
         return Jwts.builder()
-            .setSubject(email)
+            .setSubject(id)
             .setIssuedAt(now)
             .setExpiration(expiration)
             .signWith(secretKey, SignatureAlgorithm.HS256)
@@ -49,7 +49,10 @@ class JwtUtil(private val jwtProperty: JwtProperty) {
         }
     }
 
-    fun getEmailFromToken(token: String): String {
+    /**
+     * JWT 토큰에서 id 추출
+     */
+    fun getIdFromToken(token: String): String {
         val claims = Jwts.parserBuilder()
             .setSigningKey(secretKey)
             .build()

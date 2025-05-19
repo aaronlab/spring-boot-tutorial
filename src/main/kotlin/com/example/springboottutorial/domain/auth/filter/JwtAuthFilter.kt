@@ -2,7 +2,6 @@ package com.example.springboottutorial.domain.auth.filter
 
 import com.example.springboottutorial.global.annotation.Public
 import com.example.springboottutorial.domain.auth.util.JwtUtil
-import com.example.springboottutorial.global.exception.CustomException
 import com.example.springboottutorial.global.exception.ErrorCode
 import com.example.springboottutorial.global.util.FilterErrorResponder
 import jakarta.servlet.FilterChain
@@ -57,8 +56,8 @@ class JwtAuthFilter(
                 return
             }
 
-            val email = jwtUtil.getEmailFromToken(token)
-            val authentication = UsernamePasswordAuthenticationToken(email, null, emptyList())
+            val id = jwtUtil.getIdFromToken(token)
+            val authentication = UsernamePasswordAuthenticationToken(id, null, emptyList())
             authentication.details = WebAuthenticationDetailsSource().buildDetails(request)
             SecurityContextHolder.getContext().authentication = authentication
         }

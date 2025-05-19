@@ -48,7 +48,7 @@ class AuthService(
             throw IllegalArgumentException("비밀번호가 일치하지 않습니다.")
         }
 
-        val token = jwtUtil.generateToken(user.email)
+        val token = jwtUtil.generateToken(user.id)
         return SigninResponse(token = token)
     }
 }
