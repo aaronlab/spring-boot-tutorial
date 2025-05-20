@@ -1,5 +1,9 @@
 # Getting Started
 
+```shell
+docker compose up
+```
+
 ### Reference Documentation
 
 For further reference, please consider the following sections:
