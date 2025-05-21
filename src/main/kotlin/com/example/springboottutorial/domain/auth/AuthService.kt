@@ -45,7 +45,7 @@ class AuthService(
             ?: throw CustomException.of(ErrorCode.INVALID_CREDENTIALS)
 
         if (!passwordEncoder.matches(request.password, user.password)) {
-            throw IllegalArgumentException("비밀번호가 일치하지 않습니다.")
+            throw CustomException.of(ErrorCode.INVALID_CREDENTIALS)
         }
 
         val token = jwtUtil.generateToken(user.id)
